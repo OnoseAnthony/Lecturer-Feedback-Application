@@ -1,0 +1,18 @@
+<h2 style="color:black;">Assessments</h2>
+<p style="color:black;" class="text-muted">
+  Department:{% for department in user.student.department.all %} {{ department.get_html_badge }}{% endfor %}
+</p>
+
+<p style="color:black;" class="text-muted">
+  Level:{% for level in user.student.level.all %} {{ level.get_html_badge }}{% endfor %}
+</p>
+
+
+<ul class="nav nav-tabs mb-3">
+  <li class="nav-item">
+    <a class="nav-link{% if active == 'new' %} active{% endif %}" href="{% url 'reviews:students:assessment_list' %}">New</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link{% if active == 'taken' %} active{% endif %}" href="{% url 'reviews:students:taken_assessment_list' %}">Completed</a>
+  </li>
+</ul>
